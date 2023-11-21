@@ -141,6 +141,10 @@ function move(){
 	moveNeptune();
 	moveMoon();	
 }
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Mercure
+var $mercury = $('.mercury_container').eq(0);
+
 function moveMercury(){
     var alpha = Math.PI*deltaMerc/180;
  	$mercuryContainer.css('top', mercuryY + Rmercury * Math.sin(alpha)* verticalKaificent);
@@ -154,6 +158,17 @@ function moveMercury(){
  	deltaMerc+=47.87/n;	
  	if(deltaMerc>360){deltaMerc-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Mercure
+$mercury.on('click', function () {
+    window.location.href = 'Planetes/mercury.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Venus
+var $venus = $('.venus_container').eq(0);
+
 function moveVenus(){
     var alpha = Math.PI*deltaVenus/180;
  	$venusContainer.css('top', venusY + Rvenus * Math.sin(alpha)* verticalKaificent);
@@ -168,6 +183,19 @@ function moveVenus(){
  	deltaVenus+=35.02/n;	
  	if(deltaVenus>360){deltaVenus-=360;}
 }
+
+// Ajoutez un gestionnaire d'événements de clic à l'élément Venus
+$venus.on('click', function () {
+    window.location.href = 'Planetes/venus.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Earth
+var $earth = $('.earth_moon_container').eq(0);
+
 function moveEarth(){
     var alpha = Math.PI*deltaEarth/180;
  	$earthMoonContainer.css('top', earthY + Rearth * Math.sin(alpha)* verticalKaificent);
@@ -181,6 +209,14 @@ function moveEarth(){
  	deltaEarth+=29.78/n;	
  	if(deltaEarth>360){deltaEarth-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Earth
+$earth.on('click', function () {
+    window.location.href = 'Planetes/earth.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+
 function moveMoon(){
     var alpha = Math.PI*deltaMoon/180;
  	$moon.css('top', moonY + Rmoon * Math.sin(alpha)* verticalKaificent);
@@ -193,6 +229,10 @@ function moveMoon(){
  	deltaMoon += 340/n;
  	if(deltaMoon>360){deltaMoon-=360;}
 }
+
+// Ajoutez une référence à l'élément Mars
+var $mars = $('.mars_container').eq(0);
+//-------------------------------------------------------------
 function moveMars(){
     var alpha = Math.PI*deltaMars/180;
  	$marsContainer.css('top', marsY + Rmars * Math.sin(alpha)* verticalKaificent);
@@ -206,6 +246,18 @@ function moveMars(){
  	deltaMars+=24.077/n;	
 	if(deltaMars>360){deltaMars-=360;}
 }
+
+// Ajoutez un gestionnaire d'événements de clic à l'élément Mars
+$mars.on('click', function () {
+    window.location.href = 'Planetes/mars.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Jupiter
+var $jupiter= $('.jupiter_container').eq(0);
+
 function moveJupiter(){
 	var obj = $('.jupiter_container').eq(0);	
     var alpha = Math.PI*deltaJupiter/180;
@@ -220,6 +272,17 @@ function moveJupiter(){
 	deltaJupiter += 13.07/n;	
  	if(deltaJupiter>360){deltaJupiter-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Jupiter
+$jupiter.on('click', function () {
+    window.location.href = 'Planetes/jupiter.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Saturn
+var $saturn = $('.saturn_container').eq(0);
+
 function moveSaturn(){
     var alpha = Math.PI*deltaSaturn/180;
  	$saturnRingContainer.css('top', saturnY + Rsaturn * Math.sin(alpha)* verticalKaificent);
@@ -233,6 +296,17 @@ function moveSaturn(){
  	deltaSaturn += 9.69/n;	
 	if(deltaSaturn>360){deltaSaturn-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Saturn
+$saturn.on('click', function () {
+    window.location.href = 'Planetes/saturn.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Uranus
+var $uranus = $('.uranus_container').eq(0);
+
 function moveUranus(){
     var alpha = Math.PI*deltaUranus/180;
  	$uranusContainer.css('top', uranusY + Ruranus * Math.sin(alpha)* verticalKaificent);
@@ -246,6 +320,17 @@ function moveUranus(){
  	deltaUranus+=6.81/n;	
 	if(deltaUranus>360){deltaUranus-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Uranus
+$uranus.on('click', function () {
+    window.location.href = 'Planetes/uranus.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Neptune
+var $neptune = $('.neptune_container').eq(0);
+
 function moveNeptune(){
     var alpha = Math.PI*deltaNeptune/180;
  	$neptuneContainer.css('top', neptuneY + Rneptune * Math.sin(alpha)* verticalKaificent);
@@ -259,6 +344,14 @@ function moveNeptune(){
  	deltaNeptune+=5.43/n;	
 	if(deltaNeptune>360){deltaNeptune-=360;}
 }
+// Ajoutez un gestionnaire d'événements de clic à l'élément Neptune
+$neptune.on('click', function () {
+    window.location.href = 'Planetes/neptune.html';
+});
+$(document).ready(function(){
+    start.click();
+});
+//-------------------------------------------------------------
 function drawCircles(){
 	var mercuryCircle = $('.mercury_circle').eq(0);
 	mercuryCircle.css('left', width/2 - Rmercury);
