@@ -143,6 +143,24 @@ function move(){
 }
 //-------------------------------------------------------------
 // Ajoutez une référence à l'élément Mercure
+var $soleil = $('.sun').eq(0);
+var deltaSoleil = 0;
+
+function moveSoleil() {
+    var alpha = Math.PI * deltaSoleil / 180;
+    sun.style.top = (height / 2 - sun.offsetHeight / 2) + Rsoleil * Math.sin(alpha) * verticalKaificent + 'px';
+    sun.style.left = (width / 2 - sun.offsetWidth / 2) + Rsoleil * Math.cos(alpha) + 'px';
+    deltaSoleil += 5 / n;
+    if (deltaSoleil > 360) {
+        deltaSoleil -= 360;
+    }
+}
+$soleil.on('click', function () {
+    window.location.href = 'Planetes/sun.html';
+});
+
+//-------------------------------------------------------------
+// Ajoutez une référence à l'élément Mercure
 var $mercury = $('.mercury_container').eq(0);
 
 function moveMercury(){
