@@ -20,6 +20,8 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 h2 {
@@ -150,3 +152,54 @@ h2 {
       1.5em Georgia,
       serif;
   }
+
+  /* Styles pour le conteneur du lecteur audio personnalisé */
+.custom-audio-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles pour le bouton "Play" personnalisé */
+.custom-play-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+Styles pour le lecteur audio personnalisé
+.custom-audio {
+  width: 300px; /* Largeur personnalisée */
+  margin-left: 10px; /* Espacement du lecteur par rapport au bouton */
+}
+
+/* Styles pour les contrôles du lecteur audio */
+.custom-audio::-webkit-media-controls-panel {
+  background-color: #f4f4f4; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+/* Styles pour les boutons du lecteur audio */
+.custom-audio::-webkit-media-controls-play-button,
+.custom-audio::-webkit-media-controls-pause-button,
+.custom-audio::-webkit-media-controls-seek-back-button,
+.custom-audio::-webkit-media-controls-seek-forward-button {
+  display: none; /* Cacher les boutons par défaut dans le lecteur audio */
+}
+
+/* Style pour la barre de progression du lecteur audio */
+.custom-audio::-webkit-media-controls-timeline {
+  background-color: #ddd; /* Couleur de la barre de progression */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+/* Style pour la partie remplie de la barre de progression */
+.custom-audio::-webkit-media-controls-timeline::media-seek-backward-button,
+.custom-audio::-webkit-media-controls-timeline::media-seek-forward-button,
+.custom-audio::-webkit-media-controls-timeline::before {
+  background-color: #333; /* Couleur de remplissage de la barre de progression */
+  border-radius: 5px; /* Coins arrondis */
+}

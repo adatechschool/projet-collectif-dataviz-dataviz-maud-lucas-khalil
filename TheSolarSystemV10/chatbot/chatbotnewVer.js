@@ -15,13 +15,20 @@ fetch('responses.json')
     })
     .catch(error => console.error("Error loading responses:", error));
 
-function sendMessage() {
-    const message = userInput.value;
-    appendMessage('user', message);
-
-    // Call a function to process the user's message and generate a response
-    processUserMessage(message);
-}
+    function sendMessage() {
+        const message = userInput.value;
+        appendMessage('user', message);
+    
+        // Call a function to process the user's message and generate a response
+        processUserMessage(message);
+    
+        // Clear the user input bar
+        userInput.value = '';
+    
+        // Scroll the chat container to the bottom immediately
+        scrollChatToBottom();
+    }
+    
 
 function appendMessage(sender, message) {
     // Create a container div for the entire message
@@ -92,7 +99,12 @@ function processUserMessage(message) {
     // Convert the user's message to lowercase and remove spaces and punctuation
     const cleanedUserMessage = message.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '');
 
-    if (cleanedUserMessage === "help") {
+    if (cleanedUserMessage.startsWith("calculate")) {
+        const expression = cleanedUserMessage.replace("calculate", "").trim();
+        const result = calculateMathExpression(expression);
+        appendBotResponse(`The result is: ${result}`, 'clippyspace.jpg');
+   
+    } else if (cleanedUserMessage === "help") {
         // Trigger a random question
         suggestRandomQuestion();
     } else {
@@ -212,4 +224,49 @@ function searchRandomYouTubeVideo(query) {
 
     // Provide a response in the chat
     appendBotResponse(`Searching for a random YouTube video on '${query}'. Please check your browser for results.`, 'clippyspace.jpg');
+}
+
+function calculateMathExpression(expression) {
+    try {
+        // Utiliser une expression régulière pour extraire les nombres et l'opérateur
+        const match = expression.match(/([-]?\d+(\.\d+)?)\s*([-+*/])\s*([-]?\d+(\.\d+)?)/);
+
+        if (match) {
+            // Extraire les valeurs correspondantes
+            const a = parseFloat(match[1]);
+            const operator = match[3];
+            const b = parseFloat(match[4]);
+
+            // Vérifier si a et b sont des nombres valides
+            if (!isNaN(a) && !isNaN(b)) {
+                // Effectuer l'opération en fonction de l'opérateur
+                let result;
+                switch (operator) {
+                    case '+':
+                        result = a + b;
+                        break;
+                    case '-':
+                        result = a - b;
+                        break;
+                    case '*':
+                        result = a * b;
+                        break;
+                    case '/':
+                        result = a / b;
+                        break;
+                    default:
+                        return "Opérateur invalide";
+                }
+
+                return result;
+            } else {
+                return "Nombres invalides dans l'expression";
+            }
+        } else {
+            return "Format d'expression invalide";
+        }
+    } catch (error) {
+        console.error('Erreur lors de l\'évaluation de l\'expression mathématique :', error);
+        return "Erreur lors de l'évaluation de l'expression";
+    }
 }

@@ -57,27 +57,45 @@
 </head>
 <body>
   <model-viewer
-    src="models/Uranus_1_51118.glb"
-    alt="Modèle 3D de Saturn"
+    src="models/Mercury_1_4878.glb"
+    alt="Modèle 3D de Mercury"
     camera-controls
     auto-rotate
   ></model-viewer>
 
   <div class="close-button" onclick="goToIndex()">X</div>
 
-  <div class="info-container">
-    <h2 data-text="Description d'Uranus">Description d'Uranus</h2>
+ <div class="info-container">
+    <h2 data-text="Mercure">Mercure</h2>
     <ul class="white-text-with-blue-shadow">
-        <li>Elle est la plus éloignée connue du Système solaire.</li>
+        <li>Planète la plus proche du Soleil et la moins massive du Système solaire</li>
         &nbsp;
-        <li>Elle orbite à une distance d'environ 30,1 au (4,5 milliards de kilomètres) du Soleil, avec une excentricité orbitale moitié moindre que celle de la Terre. </li>
+        <li> Elle est visible à l'œil nu depuis la Terre </li>
         &nbsp;
-        <li>Sa masse est de 1,024 3 × 1026 kg (17,147 Terres).</li> 
-        &nbsp;  
-        <li>Sa période de révolution est de 164,79 ans.</li>     
+        <li>Sa masse est 3,301 1 × 1023 kg (0,055 Terre) </li> 
+
     </ul>
   </div>
-  
+  <div class="custom-audio-container">
+    <button class="custom-play-button" onclick="toggleAudio()">Play</button>
+    <audio id="myAudio" class="custom-audio">
+      <source src="sound/mercury sound.mp3" type="audio/mp3">
+    </audio>
+  </div>
+   <script>
+  // Fonction pour jouer ou mettre en pause le lecteur audio
+function toggleAudio() {
+  var audio = document.getElementById('myAudio');
+  var playButton = document.querySelector('.custom-play-button');
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = 'Pause'; // Change le texte du bouton en "Pause"
+  } else {
+    audio.pause();
+    playButton.textContent = 'Ecouter le son de la planète'; // Change le texte du bouton en "Play"
+  }
+}
+   </script>
   <script>
     function goToIndex() {
       window.location.href = '../index.html';

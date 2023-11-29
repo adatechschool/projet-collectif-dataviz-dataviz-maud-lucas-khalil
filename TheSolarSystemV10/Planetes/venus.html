@@ -6,7 +6,7 @@
   <title>Modèle 3D de la Terre</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer"></script>
   <link href="StylePresentation.css" rel="stylesheet">
-  <style>
+ <style>
     body {
       margin: 0;
       overflow: hidden;
@@ -57,30 +57,50 @@
 </head>
 <body>
   <model-viewer
-    src="models/Saturn_1_120536.glb"
-    alt="Modèle 3D de Saturn"
+    src="models/Venussurface_1_12103.glb"
+    alt="Modèle 3D de Venus"
     camera-controls
     auto-rotate
   ></model-viewer>
 
   <div class="close-button" onclick="goToIndex()">X</div>
 
-  <div class="info-container">
-    <h2 data-text="Description de Saturne">Description de Saturne</h2>
+ <div class="info-container">
+    <h2 data-text="Venus">Venus</h2>
     <ul class="white-text-with-blue-shadow">
-        <li>Elle est la deuxième plus grande par la taille et la masse après Jupiter, qui est comme elle une planète géante gazeuse.</li>
+        <li>Deuxième planète du Système solaire par ordre d'éloignement au Soleil, et la sixième plus grosse aussi bien par la masse que le diamètre.
+        </li>
         &nbsp;
-        <li>Son rayon moyen de 58 232 km est environ neuf fois et demi celui de la Terre.</li>
+        <li>Sa masse est de 4,867 5 × 1024 kg (0,815 Terre)</li>
         &nbsp;
-        <li>Sa masse est de 568,46 × 1024 kg.</li>   
+        <li>Planète la plus chaude du Système solaire du fait de son atmosphère beaucoup plus dense que l'atmosphère terrestre.</li>   
         &nbsp;
-        <li>Orbitant en moyenne à environ 1,4 milliard de kilomètres du Soleil (9,5 unités astronomiques).</li>
-        &nbsp;
-        <li> Sa période de révolution vaut un peu moins de 30 années terrestres tandis que sa période de rotation est estimée à 10 h 33 min.
+        <li>Elle orbite autour du Soleil tous les 224,7 jours terrestres. Avec une période de rotation de 243 jours terrestres, il lui faut plus de temps pour tourner autour de son axe que toute autre planète du Système solaire. 
         </li>
     </ul>
   </div>
 
+  <div class="custom-audio-container">
+    <button class="custom-play-button" onclick="toggleAudio()">Play</button>
+    <audio id="myAudio" class="custom-audio">
+      <source src="sound/venus sound.mp3" type="audio/mp3">
+    </audio>
+  </div>
+   <script>
+  // Fonction pour jouer ou mettre en pause le lecteur audio
+function toggleAudio() {
+  var audio = document.getElementById('myAudio');
+  var playButton = document.querySelector('.custom-play-button');
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = 'Pause'; // Change le texte du bouton en "Pause"
+  } else {
+    audio.pause();
+    playButton.textContent = 'Ecouter le son de la planète'; // Change le texte du bouton en "Play"
+  }
+}
+   </script>
+  
   <script>
     function goToIndex() {
       window.location.href = '../index.html';

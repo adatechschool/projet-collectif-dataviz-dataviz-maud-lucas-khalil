@@ -57,8 +57,8 @@
 </head>
 <body>
   <model-viewer
-    src="models/Mercury_1_4878.glb"
-    alt="Modèle 3D de Mercury"
+    src="models/Sun_1_1391000.glb"
+    alt="Modèle 3D du Soleil"
     camera-controls
     auto-rotate
   ></model-viewer>
@@ -66,16 +66,36 @@
   <div class="close-button" onclick="goToIndex()">X</div>
 
  <div class="info-container">
-    <h2 data-text="Description de Mercure">Description de Mercure</h2>
+    <h2 data-text="Le Soleil">Le Soleil</h2>
     <ul class="white-text-with-blue-shadow">
-        <li>Planète la plus proche du Soleil et la moins massive du Système solaire</li>
+        <li>Etoile de type naine jaune du système solaire.</li>
         &nbsp;
-        <li> Elle est visible à l'œil nu depuis la Terre </li>
+        <li> Sa masse est d'environ 1,989 1 × 1030 kg, composée d’hydrogène (74 % de la masse ou 92 % du volume) et d’hélium (25 % de la masse ou 8 % du volume).
+        </li>
         &nbsp;
-        <li>Sa masse est 3,301 1 × 1023 kg (0,055 Terre) </li> 
-
+        <li>Le Soleil orbite autour du centre galactique en une année galactique de 225 à 250 millions d'années.</li>   
     </ul>
   </div>
+  <div class="custom-audio-container">
+    <button class="custom-play-button" onclick="toggleAudio()">Play</button>
+    <audio id="myAudio" class="custom-audio">
+      <source src="sound/Sun sound.mp3" type="audio/mp3">
+    </audio>
+  </div>
+   <script>
+  // Fonction pour jouer ou mettre en pause le lecteur audio
+function toggleAudio() {
+  var audio = document.getElementById('myAudio');
+  var playButton = document.querySelector('.custom-play-button');
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = 'Pause'; // Change le texte du bouton en "Pause"
+  } else {
+    audio.pause();
+    playButton.textContent = 'Ecouter le son de la planète'; // Change le texte du bouton en "Play"
+  }
+}
+   </script>
 
   <script>
     function goToIndex() {

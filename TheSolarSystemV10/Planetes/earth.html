@@ -57,30 +57,50 @@
 </head>
 <body>
   <model-viewer
-    src="models/Neptune_1_49528.glb"
-    alt="Modèle 3D de Neptune"
+    src="models/EarthClouds_1_12756.glb"
+    alt="Modèle 3D de la Terre"
     camera-controls
     auto-rotate
   ></model-viewer>
 
   <div class="close-button" onclick="goToIndex()">X</div>
 
-<div class="info-container">
-    <h2 data-text="Description de Neptune">Description de Neptune</h2>
+  <div class="info-container">
+    <h2 data-text="Description de la Terre">La Terre</h2>
     <ul class="white-text-with-blue-shadow">
-        <li>Elle est la plus éloignée connue du Système solaire.</li>
+        <li>Troisième planète par ordre d'éloignement au Soleil et la cinquième plus grande du Système solaire aussi bien par la masse que par le diamètre
+        </li>
         &nbsp;
-        <li>Elle orbite autour du Soleil à une distance d'environ 30,1 au (4,5 milliards de kilomètres), avec une excentricité orbitale moitié moindre que celle de la Terre.</li>
+        <li> Elle est le seul objet céleste connu pour abriter la vie.
+        </li>
         &nbsp;
-        <li>Sa masse est de 1,024 3 × 1026 kg (17,147 Terres).</li>   
+        <li>Masse : 5,973 6 × 10x24 kg
+        </li>
         &nbsp;
-        <li>Il s'agit de la troisième planète la plus massive du Système solaire et de la quatrième plus grande par la taille.</li>
-        &nbsp;
-        <li> Sa période de révolution est de 164,79 ans.
+        <li>D'après la datation radiométrique, la Terre s'est formée il y a 4,54 milliards d'années. Elle possède un unique satellite naturel, la Lune, qui s'est formée peu après. 
         </li>
     </ul>
   </div>
-
+  <div class="custom-audio-container">
+    <button class="custom-play-button" onclick="toggleAudio()">Play</button>
+    <audio id="myAudio" class="custom-audio">
+      <source src="sound/earth sound.mp3" type="audio/mp3">
+    </audio>
+  </div>
+   <script>
+  // Fonction pour jouer ou mettre en pause le lecteur audio
+function toggleAudio() {
+  var audio = document.getElementById('myAudio');
+  var playButton = document.querySelector('.custom-play-button');
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = 'Pause'; // Change le texte du bouton en "Pause"
+  } else {
+    audio.pause();
+    playButton.textContent = 'Ecouter le son de la planète'; // Change le texte du bouton en "Play"
+  }
+}
+   </script>
   <script>
     function goToIndex() {
       window.location.href = '../index.html';
